@@ -13,6 +13,8 @@ echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 # echo root:temp1234 | chpasswd # if you want to have a password for root user
 
 pacman -S grub efibootmgr lvm2 networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-jack bash-completion openssh rsync reflector acpi acpi_call virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font zip unzip unrar p7zip htop man-db man-pages pacman-contrib fwupd
+# Alternate to pulseaudio packages
+# pacman -S pipewire pipewire-alsa pipewire-pulse pipewire-jack
 
 # If you want to install KDE Plasma desktop environment
 # pacman -S xorg xorg-server sddm plasma kwalletmanager konsole filelight ark gwenview kate okular spectacle dolphin kcalc simplescreenrecorder discover packagekit-qt5
