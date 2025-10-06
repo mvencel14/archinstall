@@ -1,4 +1,3 @@
-```bash
 #!/bin/bash
 #=========================================================
 #  Arch Linux Post-Install Helper Script (Interactive)
@@ -132,4 +131,3 @@ echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > "/etc/sudoers.d/$USERNAME"
 #  Finished
 #---------------------------------------------------------
 printf "\e[1;32mInstallation completed for user '$USERNAME' on host '$HOSTNAME'.\e[0m\n"
-```
