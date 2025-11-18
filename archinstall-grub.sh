@@ -177,7 +177,6 @@ mkinitcpio -P
 # GRUB setup
 #===============================================================================
 EFI_DIR="$(input_default "EFI mount dir" "/efi")"
-BOOT_TARGET="$EFI_DIR"
 
 ROOT_PART="$(findmnt -no SOURCE /)"
 DISK_DEV="$(lsblk -no pkname "$ROOT_PART" | head -n1)"
@@ -186,7 +185,7 @@ DISK="/dev/$DISK_DEV"
 # Install GRUB as x86_64-efi (UEFI)
 grub-install --target=x86_64-efi --efi-directory="$EFI_DIR" --bootloader-id=GRUB
 
-grub-mkconfig -o "$BOOT_TARGET/grub/grub.cfg"
+grub-mkconfig -o "/boot/grub/grub.cfg"
 
 #===============================================================================
 # Add base services and enable all
