@@ -32,7 +32,7 @@ enable_services() {
 # Package & Service definitions (modular)
 #===============================================================================
 BASE_PKGS=(
-    systemd-boot-pacman-hook networkmanager dialog wpa_supplicant mtools dosfstools
+    networkmanager dialog wpa_supplicant mtools dosfstools
     reflector base-devel linux-headers linux-lts linux-lts-headers xdg-user-dirs
     xdg-utils gvfs gvfs-smb nfs-utils inetutils net-tools dnsutils cups alsa-utils
     bash-completion openssh rsync acpi acpi_call bridge-utils dnsmasq unbound
@@ -45,7 +45,6 @@ LVM_PKGS=(lvm2)
 
 HYPERV_PKGS=(hyperv)
 HYPERV_SERVICES=(
-    hv_fcopy_daemon.service
     hv_kvp_daemon.service
     hv_vss_daemon.service
 )
@@ -147,7 +146,7 @@ if ask "Will this system use libvirt virtualization?"; then
 fi
 
 # GPU
-echo "Choose GPU driver (empty = none):"
+echo "Choose GPU driver:"
 printf "1) AMD\n2) NVIDIA\n3) Intel or VM\n"
 
 while true; do
@@ -229,3 +228,4 @@ if ask "Create a user?"; then
 fi
 
 echo -e "\e[1;32mInstallation script completed.\e[0m"
+
