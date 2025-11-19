@@ -32,7 +32,7 @@ enable_services() {
 # Package & Service definitions (modular)
 #===============================================================================
 BASE_PKGS=(
-    efibootmgr networkmanager dialog wpa_supplicant mtools dosfstools lvm2
+    efibootmgr networkmanager dialog wpa_supplicant mtools dosfstools lvm2 vim
     reflector base-devel linux-headers linux-lts linux-lts-headers xdg-user-dirs
     xdg-utils gvfs gvfs-smb nfs-utils inetutils net-tools dnsutils cups alsa-utils
     bash-completion openssh rsync acpi acpi_call bridge-utils lsof wget tree
