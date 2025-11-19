@@ -2,21 +2,17 @@
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/sda3
-UUID=76cf7897-daa2-4146-95a7-9ef1eae14668	/         	btrfs     	rw,noatime,compress-force=zstd:3,ssd,discard=async,space_cache=v2,subvolid=256,subvol=/@	0 0
-
-# /dev/sda3
-UUID=76cf7897-daa2-4146-95a7-9ef1eae14668	/home     	btrfs     	rw,noatime,compress-force=zstd:3,ssd,discard=async,space_cache=v2,subvolid=257,subvol=/@home	0 0
-
-# /dev/sda3
-UUID=76cf7897-daa2-4146-95a7-9ef1eae14668	/var/log  	btrfs     	rw,noatime,compress-force=zstd:3,ssd,discard=async,space_cache=v2,subvolid=258,subvol=/@var_log	0 0
-
-# /dev/sda3
-UUID=76cf7897-daa2-4146-95a7-9ef1eae14668	/.snapshots	btrfs     	rw,noatime,compress-force=zstd:3,ssd,discard=async,space_cache=v2,subvolid=259,subvol=/@snapshots	0 0
-
-# /dev/sda1
-UUID=08A7-CEB3      	/efi      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+# /dev/sda2
+UUID=df988b52-98a8-45d7-922d-25fc617c6bb9       /               btrfs           rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,autodefrag,subvol=/@        0 0
 
 # /dev/sda2
-UUID=9872d237-bd54-435f-a289-95ae550996ae	none      	swap      	defaults  	0 0
+UUID=df988b52-98a8-45d7-922d-25fc617c6bb9       /home           btrfs           rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,autodefrag,subvol=/@home    0 0
 
+# /dev/sda2
+UUID=df988b52-98a8-45d7-922d-25fc617c6bb9       /.snapshots     btrfs           rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,autodefrag,subvol=/@snapshots       0 0
+
+# /dev/sda2
+UUID=df988b52-98a8-45d7-922d-25fc617c6bb9       /var/log        btrfs           rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,autodefrag,subvol=/@var_log 0 0
+
+# /dev/sda1
+UUID=48CC-BBEC          /efi            vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro   0 2
