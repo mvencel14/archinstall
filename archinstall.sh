@@ -164,7 +164,9 @@ fi
 EFI_DIR="$(input_default "EFI mount dir" "/efi")"
 bootctl --esp-path="$EFI_DIR" install
 
-ROOT_UUID="$(blkid -s UUID -o value "$(findmnt -no SOURCE /)")"
+ROOT_PART="$(findmnt -no SOURCE /)"
+ROOT_DEV="${ROOT_PART%%[*}"   # Remove anything after '['
+ROOT_UUID="$(blkid -s UUID -o value "$ROOT_DEV")"
 
 mkdir -p "$EFI_DIR/loader/entries"
 
@@ -219,6 +221,7 @@ fi
 
 echo "Don't forget to configure mkinitcpio if LVM is used"
 echo -e "\e[1;32mInstallation script completed.\e[0m"
+
 
 
 
