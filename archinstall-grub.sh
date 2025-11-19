@@ -169,7 +169,8 @@ fi
 EFI_DIR="$(input_default "EFI mount dir" "/efi")"
 
 ROOT_PART="$(findmnt -no SOURCE /)"
-DISK_DEV="$(lsblk -no pkname "$ROOT_PART" | head -n1)"
+ROOT_DEV="${ROOT_PART%%[*}"  # Strips [subvolume] from device path
+DISK_DEV="$(lsblk -no pkname "$ROOT_DEV" | head -n1)"
 DISK="/dev/$DISK_DEV"
 
 # Install GRUB as x86_64-efi (UEFI)
