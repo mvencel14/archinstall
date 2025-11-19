@@ -217,6 +217,8 @@ if ask "Create a user?"; then
     fi
 fi
 
+echo "Don't forget to configure mkinitcpio if LVM is used"
 echo -e "\e[1;32mInstallation script completed.\e[0m"
+
 
 
