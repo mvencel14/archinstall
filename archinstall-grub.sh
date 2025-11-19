@@ -32,13 +32,13 @@ enable_services() {
 # Package & Service definitions (modular)
 #===============================================================================
 BASE_PKGS=(
-    networkmanager dialog wpa_supplicant mtools dosfstools lvm2
+    efibootmgr networkmanager dialog wpa_supplicant mtools dosfstools lvm2
     reflector base-devel linux-headers linux-lts linux-lts-headers xdg-user-dirs
     xdg-utils gvfs gvfs-smb nfs-utils inetutils net-tools dnsutils cups alsa-utils
-    bash-completion openssh rsync acpi acpi_call bridge-utils dnsmasq unbound
+    bash-completion openssh rsync acpi acpi_call bridge-utils lsof wget tree
     openbsd-netcat iptables-nft ipset firewalld sof-firmware nss-mdns acpid
     ntfs-3g exfatprogs terminus-font zip unzip unrar p7zip htop man-db man-pages
-    pacman-contrib vnstat ncdu iwd fdupes tree lsof wget
+    pacman-contrib vnstat ncdu iwd fdupes
 )
 
 HYPERV_PKGS=(hyperv)
@@ -57,7 +57,7 @@ GPU_PKG_AMD=(xf86-video-amdgpu)
 GPU_PKG_NVIDIA=(nvidia nvidia-utils nvidia-settings)
 GPU_PKG_INTEL=()   # No special packages
 
-GRUB_PKGS=(grub efibootmgr os-prober)
+GRUB_PKGS=(grub os-prober)
 
 BASE_SERVICES=(
     NetworkManager
