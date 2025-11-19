@@ -32,7 +32,7 @@ enable_services() {
 # Package & Service definitions (modular)
 #===============================================================================
 BASE_PKGS=(
-    networkmanager dialog wpa_supplicant mtools dosfstools
+    networkmanager dialog wpa_supplicant mtools dosfstools lvm2
     reflector base-devel linux-headers linux-lts linux-lts-headers xdg-user-dirs
     xdg-utils gvfs gvfs-smb nfs-utils inetutils net-tools dnsutils cups alsa-utils
     bash-completion openssh rsync acpi acpi_call bridge-utils dnsmasq unbound
@@ -40,8 +40,6 @@ BASE_PKGS=(
     ntfs-3g exfatprogs terminus-font zip unzip unrar p7zip htop man-db man-pages
     pacman-contrib vnstat ncdu iwd fdupes tree lsof wget
 )
-
-LVM_PKGS=(lvm2)
 
 HYPERV_PKGS=(hyperv)
 HYPERV_SERVICES=(
@@ -123,12 +121,6 @@ if ask "Install base recommended packages?"; then
     PACKAGES+=("${BASE_PKGS[@]}")
 fi
 
-# LVM
-if ask "Is the root partition LVM?"; then
-    PACKAGES+=("${LVM_PKGS[@]}")
-    sed -i 's/\(block\)/\1 lvm2/' /etc/mkinitcpio.conf
-fi
-
 # Hyper-V
 if ask "Is this system running under Hyper-V?"; then
     PACKAGES+=("${HYPERV_PKGS[@]}")
@@ -171,8 +163,6 @@ if [[ ${#PACKAGES[@]} -gt 0 ]]; then
     pacman -S --needed "${PACKAGES[@]}"
 fi
 
-mkinitcpio -P
-
 #===============================================================================
 # GRUB setup
 #===============================================================================
@@ -208,4 +198,5 @@ if ask "Create a user?"; then
     fi
 fi
 
+echo "Don't forget to configure mkinitcpio if LVM is used"
 echo -e "\e[1;32mInstallation script completed.\e[0m"
