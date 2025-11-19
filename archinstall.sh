@@ -37,8 +37,8 @@ BASE_PKGS=(
     xdg-utils gvfs gvfs-smb nfs-utils inetutils net-tools dnsutils cups alsa-utils
     bash-completion openssh rsync acpi acpi_call bridge-utils lsof wget tree
     openbsd-netcat iptables-nft ipset firewalld sof-firmware nss-mdns acpid
-    ntfs-3g exfatprogs terminus-font zip unzip unrar p7zip htop man-db man-pages
-    pacman-contrib vnstat ncdu iwd fdupes
+    ntfs-3g exfatprogs btrfs-progs zip unzip unrar p7zip man-db man-pages
+    pacman-contrib vnstat ncdu iwd fdupes htop terminus-font
 )
 
 HYPERV_PKGS=(hyperv)
@@ -219,6 +219,7 @@ fi
 
 echo "Don't forget to configure mkinitcpio if LVM is used"
 echo -e "\e[1;32mInstallation script completed.\e[0m"
+
 
 
 
