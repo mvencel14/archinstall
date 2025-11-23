@@ -1,0 +1,15 @@
+[Trigger]
+Type = Path
+Target = /boot/vmlinuz-linux
+Target = /boot/initramfs-linux.img
+Target = /boot/initramfs-linux-fallback.img
+Target = /boot/vmlinuz-linux-lts
+Target = /boot/initramfs-linux-lts.img
+Target = /boot/initramfs-linux-lts-fallback.img
+Target = /boot/amd-ucode.img
+Target = /boot/intel-ucode.img
+
+[Action]
+Description = Copying kernel, initramfs, and microcode to EFI system partition...
+When = PostTransaction
+Exec = /usr/bin/bash -c 'cp -u /boot/vmlinuz-* /efi/; cp -u /boot/initramfs* /efi/; cp -u /boot/amd-ucode.img /efi/ 2>/dev/null || true; cp -u /boot/intel-ucode.img /efi/ 2>/dev/null || true'
